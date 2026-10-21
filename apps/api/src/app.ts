@@ -7,7 +7,6 @@ export const app = new Hono();
 app.use("*", async (c, next) => {
   const requestId = randomUUID();
   c.header("X-Request-ID", requestId);
-  c.set("requestId", requestId);
   await next();
 });
 
